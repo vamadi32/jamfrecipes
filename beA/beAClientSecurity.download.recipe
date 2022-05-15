@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>Comment</key>
-	<string>Created with Recipe Robot v2.2.0 (https://github.com/homebysix/recipe-robot)</string>
+	<string>Secure Communication App for Legals</string>
 	<key>Description</key>
 	<string>Downloads the latest version of beA Client Security Installationsprogramm.</string>
 	<key>Identifier</key>
-	<string>com.github.vamadi32.download.beAClientSecurityInstallationsprogramm</string>
+	<string>com.github.vamadi32.download.beAClientSecurity</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
