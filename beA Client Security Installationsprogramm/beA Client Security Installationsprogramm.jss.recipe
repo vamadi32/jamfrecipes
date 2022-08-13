@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>Comment</key>
-	<string>Secure Communication App for Legals</string>
+	<string>Created with Recipe Robot v2.2.0 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
 	<string>Downloads the latest version of beA Client Security Installationsprogramm and imports it into your JSS.</string>
 	<key>Identifier</key>
-	<string>com.github.jss-recipes.jss.beAClientSecurity</string>
+	<string>com.github.jss-recipes.jss.beAClientSecurityInstallationsprogramm</string>
 	<key>Input</key>
 	<dict>
 		<key>CATEGORY</key>
@@ -30,7 +30,7 @@
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.vamadi32.pkg.beAClientSecurity</string>
+	<string>com.github.vamadi32.pkg.beAClientSecurityInstallationsprogramm</string>
 	<key>Process</key>
 	<array>
 		<dict>

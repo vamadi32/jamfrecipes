@@ -3,23 +3,28 @@
 <plist version="1.0">
 <dict>
 	<key>Comment</key>
-	<string>Secure Communication App for Legals</string>
+	<string>Created with Recipe Robot v2.2.0 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
-	<string>Downloads the latest version of beA Client Security Installationsprogramm and creates a package.</string>
+	<string>Downloads the latest version of FileZilla and creates a package.</string>
 	<key>Identifier</key>
-	<string>com.github.vamadi32.pkg.beAClientSecurity</string>
+	<string>com.github.vamadi32.pkg.FileZilla</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>beA Client Security Installationsprogramm</string>
+		<string>FileZilla</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.vamadi32.download.beAClientSecurity</string>
+	<string>com.github.vamadi32.download.FileZilla</string>
 	<key>Process</key>
 	<array>
 		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>app_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/FileZilla.app</string>
+			</dict>
 			<key>Processor</key>
 			<string>AppPkgCreator</string>
 		</dict>
