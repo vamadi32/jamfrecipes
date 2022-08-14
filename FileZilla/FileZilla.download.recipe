@@ -23,7 +23,7 @@
 				<key>filename</key>
 				<string>%NAME%.tgz</string>
 				<key>url</key>
-				<string>https://dl2.cdn.filezilla-project.org/client/FileZilla_3.60.2_macosx-x86.app.tar.bz2?h=rMCnXaaXQ46tlP4e6cIdJA&amp;x=1660319447</string>
+				<string>https://dl3.cdn.filezilla-project.org/client/FileZilla_3.60.2_macosx-x86.app.tar.bz2?h=AzQirvIBKEeabSbYg0Mh5A&amp;x=1660476161</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
