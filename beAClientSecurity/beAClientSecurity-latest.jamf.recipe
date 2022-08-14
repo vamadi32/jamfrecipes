@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>Comment</key>
-	<string>Recipe automatically generated from com.github.jss-recipes.jss.beAClientSecurityInstallationsprogramm by JamfRecipeMaker</string>
+	<string>Downloads latest signed Installer and uploads to your jamf instance.</string>
 	<key>Identifier</key>
 	<string>com.github.autopkg.grahampugh-recipes.jamf.beAClientSecurityInstallationsprogramm</string>
 	<key>Input</key>
 	<dict>
 		<key>CATEGORY</key>
-		<string>Productivity</string>
+		<string>Applications</string>
 		<key>GROUP_NAME</key>
-		<string>beA Client Security Installationsprogramm-update-smart</string>
+		<string>%NAME%-update-smart</string>
 		<key>GROUP_TEMPLATE</key>
-		<string>JamfSmartGroupTemplate.xml</string>
+		<string>SmartGroup-update-smart.xml</string>
 		<key>NAME</key>
 		<string>beA Client Security Installationsprogramm</string>
 		<key>POLICY_CATEGORY</key>
@@ -21,7 +21,7 @@
 		<key>POLICY_NAME</key>
 		<string>Install Latest %NAME%</string>
 		<key>POLICY_TEMPLATE</key>
-		<string>JamfPolicyTemplate.xml</string>
+		<string>Policy-install-latest.xml</string>
 		<key>SELF_SERVICE_DESCRIPTION</key>
 		<string></string>
 		<key>SELF_SERVICE_DISPLAY_NAME</key>
@@ -36,7 +36,7 @@
 	<key>MinimumVersion</key>
 	<string>2.3</string>
 	<key>ParentRecipe</key>
-	<string>com.github.vamadi32.pkg.beAClientSecurityInstallationsprogramm</string>
+	<string>com.github.vamadi32.download.beAClientSecurityInstallationsprogramm</string>
 	<key>Process</key>
 	<array>
 		<dict>
