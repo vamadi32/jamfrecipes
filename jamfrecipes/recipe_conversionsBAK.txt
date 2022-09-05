@@ -1,0 +1,213 @@
+Firefox.jss.recipe
+FirefoxAutoconfig.jss.recipe
+Sequel Pro.jss.recipe
+MasergyCommunicator.jss.recipe
+Blackboard Collaborate Launcher.jss.recipe
+Xcode.jss.recipe
+Kindle.jss.recipe
+Silverlight.jss.recipe
+Monodraw.jss.recipe
+Drovio.jss.recipe
+Kaleidoscope.jss.recipe
+Lingo.jss.recipe
+PingID.jss.recipe
+Twitter.jss.recipe
+Cakebrew.jss.recipe
+YakYak.jss.recipe
+Microsoft PowerPoint.jss.recipe
+Android Studio.jss.recipe
+NodeJS.jss.recipe
+OmniDiskSweeper.jss.recipe
+Pacifist.jss.recipe
+Tableau Reader.jss.recipe
+SketchUp.jss.recipe
+GoToMeeting.jss.recipe
+MplayerX.jss.recipe
+LaunchControl.jss.recipe
+Suspicious Package.jss.recipe
+BBEdit.jss.recipe
+Docker.jss.recipe
+OmniPresence.jss.recipe
+Numbers.jss.recipe
+OmniWeb.jss.recipe
+Eclipse-Luna.jss.recipe
+Adobe DNG Converter.jss.recipe
+Duo Device Health.jss.recipe
+Transmit.jss.recipe
+ScreenFlow.jss.recipe
+Bartender.jss.recipe
+Cyberduck.jss.recipe
+Maccy.jss.recipe
+Casper Suite.jss.recipe
+BibDesk.jss.recipe
+Audacity.jss.recipe
+Mailplane 3.jss.recipe
+Papers.jss.recipe
+Flux.jss.recipe
+Paparazzi.jss.recipe
+iZip.jss.recipe
+GPG Suite.jss.recipe
+Evernote.jss.recipe
+Atom.jss.recipe
+Adobe AIR.jss.recipe
+CoRD.jss.recipe
+Processing.jss.recipe
+Divvy.jss.recipe
+TorBrowser.jss.recipe
+OmniOutliner.jss.recipe
+Adobe Acrobat Reader DC.jss.recipe
+AutoDMG.jss.recipe
+Oracle Java 8 JDK.jss.recipe
+TablePlus.jss.recipe
+Changes.jss.recipe
+Caffeine.jss.recipe
+TunnelBear.jss.recipe
+Clarify.jss.recipe
+VueScan.jss.recipe
+Compressor.jss.recipe
+TextExpander.jss.recipe
+Sassafras K2 Client.jss.recipe
+Spotify.jss.recipe
+jss_helper.jss.recipe
+Tunnelblick.jss.recipe
+AirServer.jss.recipe
+Navicat Essentials for MySQL.jss.recipe
+Spring Tool Suite.jss.recipe
+Nessus Agent.jss.recipe
+TextMate.jss.recipe
+Miro.jss.recipe
+Celestia.jss.recipe
+Sibelius.jss.recipe
+R.jss.recipe
+IntelliJ IDEA IU.jss.recipe
+CLion.jss.recipe
+Flycut.jss.recipe
+Microsoft OneNote.jss.recipe
+Microsoft Outlook.jss.recipe
+Keynote.jss.recipe
+ApacheDirectoryStudio.jss.recipe
+Skitch.jss.recipe
+iMovie.jss.recipe
+AutoMounter.jss.recipe
+Motion.jss.recipe
+XQuartz.jss.recipe
+Gephi.jss.recipe
+Microsoft Word.jss.recipe
+OmniGraffle.jss.recipe
+Path Finder.jss.recipe
+PyCharm.jss.recipe
+Inkscape.jss.recipe
+Font Finagler.jss.recipe
+VirtualBox.jss.recipe
+Resilio Sync.jss.recipe
+Carbon Copy Cloner.jss.recipe
+USETogether.jss.recipe
+Colloquy.jss.recipe
+OracleJava8.jss.recipe
+Box Sync.jss.recipe
+yo.jss.recipe
+VLC.jss.recipe
+Yammer.jss.recipe
+MacadminsPython.jss.recipe
+Name Mangler.jss.recipe
+Mactracker.jss.recipe
+Transmit5.jss.recipe
+Google Drive.jss.recipe
+WebStorm.jss.recipe
+MacVim.jss.recipe
+Aurora HDR Pro.jss.recipe
+Final Cut Pro.jss.recipe
+Charles.jss.recipe
+ChefDK.jss.recipe
+NetHack.jss.recipe
+Cinch.jss.recipe
+SourceTree.jss.recipe
+iPhoto.jss.recipe
+Adobe Acrobat Pro.jss.recipe
+Microsoft Remote Desktop.jss.recipe
+OmniFocus.jss.recipe
+Tomahawk.jss.recipe
+iTerm2.jss.recipe
+SizeUp.jss.recipe
+Coda 2.jss.recipe
+ClamXav.jss.recipe
+Proximity.jss.recipe
+Parallels Desktop.jss.recipe
+coconutBattery.jss.recipe
+Geogebra.jss.recipe
+The Unarchiver.jss.recipe
+OmniPlan.jss.recipe
+HandBrake.jss.recipe
+Comic Life 3.jss.recipe
+GrandPerspective.jss.recipe
+EndNote X7.jss.recipe
+MySQLWorkBench.jss.recipe
+Adium.jss.recipe
+Tableau Desktop.jss.recipe
+Collibra.jss.recipe
+Google Chrome.jss.recipe
+Zoom.jss.recipe
+Chicken.jss.recipe
+Dropbox.jss.recipe
+Opera.jss.recipe
+Jin.jss.recipe
+iBooks Author.jss.recipe
+Quicksilver.jss.recipe
+GitHub Desktop.jss.recipe
+Adobe Digital Editions.jss.recipe
+PyCharm CE.jss.recipe
+Slack.jss.recipe
+LibreOffice.jss.recipe
+Grammarly.jss.recipe
+HipChat.jss.recipe
+RubyMine.jss.recipe
+Microsoft Excel.jss.recipe
+Google Voice and Video.jss.recipe
+MainStage 3.jss.recipe
+Nvidia CUDA Driver.jss.recipe
+Skype.jss.recipe
+DEPNotify.jss.recipe
+CraftManager.jss.recipe
+Brackets.jss.recipe
+Vivaldi.jss.recipe
+Citrix Receiver.jss.recipe
+OpenEmu.jss.recipe
+GeekTool.jss.recipe
+Pages.jss.recipe
+GSP5.jss.recipe
+DaisyDisk.jss.recipe
+Blender.jss.recipe
+Learning Ally Link.jss.recipe
+Sonos.jss.recipe
+Alfred 2.jss.recipe
+MarsEdit.jss.recipe
+Quip.jss.recipe
+Kitematic.jss.recipe
+ADPassMon.jss.recipe
+Skype For Business.jss.recipe
+Google Earth Pro.jss.recipe
+Microsoft Lync.jss.recipe
+Sketch.jss.recipe
+Adobe Acrobat DC.jss.recipe
+MacDown.jss.recipe
+Aircall.jss.recipe
+Wireshark.jss.recipe
+WiresharkDev.jss.recipe
+MinecraftEdu.jss.recipe
+Google Earth.jss.recipe
+Espresso.jss.recipe
+Thunderbird.jss.recipe
+Alfred 3.jss.recipe
+GIMP.jss.recipe
+Reflector 3.jss.recipe
+Sublime Text 3.jss.recipe
+1Password.jss.recipe
+Logic Pro X.jss.recipe
+OpenOffice.jss.recipe
+Visual Studio Code.jss.recipe
+Adobe Reader.jss.recipe
+GarageBand.jss.recipe
+Console.jss.recipe
+CheatSheet.jss.recipe
+Greenfoot.jss.recipe
+IntelliJ IDEA CE.jss.recipe
