@@ -16,7 +16,7 @@
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.autopkg.jessepeterson-recipes/SparkLabs/Viscosity.download.recipe</string>
+	<string>com.github.jessepeterson.Viscosity.download</string>
 	<key>Process</key>
 	<array>
 		<dict>
