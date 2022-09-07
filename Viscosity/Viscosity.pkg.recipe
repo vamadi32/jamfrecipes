@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Comment</key>
+	<string>Created manually</string>
+	<key>Description</key>
+	<string>Downloads the latest version of Viscosity and creates a package.</string>
+	<key>Identifier</key>
+	<string>com.github.vamadi32.pkg.Viscosity</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Viscosity</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.autopkg.jessepeterson-recipes/SparkLabs/Viscosity.download.recipe</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>AppPkgCreator</string>
+		</dict>
+	</array>
+</dict>
+</plist>
