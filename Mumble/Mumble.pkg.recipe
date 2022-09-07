@@ -12,6 +12,8 @@
 	<dict>
 		<key>NAME</key>
 		<string>Mumble</string>
+		<key>VERSIONTYPE</key>
+        <string>CFBundleVersion</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
@@ -19,9 +21,26 @@
 	<string>com.github.vamadi32.download.Mumble</string>
 	<key>Process</key>
 	<array>
+	    <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>input_plist_path</key>
+
+ <string>%RECIPE_CACHE_DIR%/downloads/Mumble.app/Contents/Info.plist</string>
+                <key>plist_version_key</key>
+                <string>%VERSIONTYPE%</string>
+            </dict>
+            <key>Processor</key>
+            <string>Versioner</string>
+        </dict>
 		<dict>
 			<key>Processor</key>
 			<string>AppPkgCreator</string>
+			<key>Arguments</key>
+            <dict>
+                <key>pkgname</key>
+                <string>%NAME%-%version%</string>
+            </dict>
 		</dict>
 	</array>
 </dict>
