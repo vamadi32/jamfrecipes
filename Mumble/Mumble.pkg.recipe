@@ -36,11 +36,6 @@
 		<dict>
 			<key>Processor</key>
 			<string>AppPkgCreator</string>
-			<key>Arguments</key>
-            <dict>
-                <key>pkgname</key>
-                <string>%NAME%-%version%</string>
-            </dict>
 		</dict>
 	</array>
 </dict>
