@@ -15,7 +15,7 @@
 		<key>GROUP_TEMPLATE</key>
 		<string>JamfSmartGroupTemplate.xml</string>
 		<key>NAME</key>
-		<string>Google Drive</string>
+		<string>GoogleDrive</string>
 		<key>POLICY_CATEGORY</key>
 		<string>Testing</string>
 		<key>POLICY_NAME</key>
