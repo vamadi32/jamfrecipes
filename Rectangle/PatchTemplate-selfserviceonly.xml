@@ -15,7 +15,7 @@
             <computer_group>
                 <name>App-Testers</name>
             </computer_group>
-        </computer_groups/>
+        </computer_groups>
         <users/>
         <buildings/>
         <departments/>
@@ -41,11 +41,11 @@
         </self_service_icon>
         <notifications>
             <notification_enabled>true</notification_enabled>
-            <notification_type>Self Service</notification_type>
-            <notification_subject/>
+            <notification_type>Self Service and Notification Center</notification_type>
+            <notification_subject>%patch_name% update available</notification_subject>
             <notification_message/>
             <reminders>
-                <notification_reminders_enabled>false</notification_reminders_enabled>
+                <notification_reminders_enabled>true</notification_reminders_enabled>
                 <notification_reminder_frequency>1</notification_reminder_frequency>
             </reminders>
         </notifications>
