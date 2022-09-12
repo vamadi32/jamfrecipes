@@ -1,0 +1,21 @@
+Description: Downloads the latest version of Keka and makes a pkg. Then, uploads the package to the Jamf Pro Server and creates a Self Service Policy and Smart Group. 
+Identifier: com.github.vamadi32.recipes.jamf.Keka-latest-patch
+ParentRecipe: com.github.vamadi32.jamf.Keka-latest
+MinimumVersion: '2.3'
+
+Input:
+  NAME: 'Keka'
+  CATEGORY: Productivity
+  PATCH_ENABLED: 'true'
+  PATCH_NAME: '%NAME%'
+  PATCH_SOFTWARE_TITLE: '%NAME%'
+  PATCH_TEMPLATE: PatchTemplate-selfserviceonly.xml
+  POLICY_NAME: Install Latest %NAME%
+
+Process:
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPatchUploader
+  Arguments:
+    patch_icon_policy_name: '%POLICY_NAME%'
+    patch_name: '%PATCH_NAME%'
+    patch_softwaretitle: '%PATCH_SOFTWARE_TITLE%'
+    patch_template: '%PATCH_TEMPLATE%'
