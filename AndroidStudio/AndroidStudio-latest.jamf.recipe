@@ -3,27 +3,27 @@
 <plist version="1.0">
 <dict>
 	<key>Comment</key>
-	<string>Recipe automatically generated from com.github.jss-recipes.jss.Zoom by JamfRecipeMaker</string>
+	<string>Downloads the latest Android Studio app, build an installer package and import it into the Jamf Pro server.</string>
 	<key>Identifier</key>
-	<string>com.github.vamadi32.jamf.zoom.us</string>
+	<string>com.github.vamadi32.jamf.AndroidStudio-latest</string>
 	<key>Input</key>
 	<dict>
 		<key>CATEGORY</key>
-		<string>Productivity</string>
+		<string>IDE</string>
 		<key>GROUP_NAME</key>
-		<string>zoom.us-update-smart</string>
+		<string>Android Studio-update-smart</string>
 		<key>GROUP_TEMPLATE</key>
 		<string>JamfSmartGroupTemplate.xml</string>
 		<key>NAME</key>
-		<string>zoom.us</string>
+		<string>Android Studio</string>
 		<key>POLICY_CATEGORY</key>
-		<string>Testing</string>
+		<string>%CATEGORY%</string>
 		<key>POLICY_NAME</key>
 		<string>Install Latest %NAME%</string>
 		<key>POLICY_TEMPLATE</key>
 		<string>JamfPolicyTemplate.xml</string>
 		<key>SELF_SERVICE_DESCRIPTION</key>
-		<string>The Zoom app provides cloud-hosted video conferencing, plus online meetings and group messaging.</string>
+		<string>Install the latest version of Android Studio.</string>
 		<key>SELF_SERVICE_DISPLAY_NAME</key>
 		<string>Install Latest %NAME%</string>
 		<key>SELF_SERVICE_ICON</key>
@@ -36,7 +36,7 @@
 	<key>MinimumVersion</key>
 	<string>2.3</string>
 	<key>ParentRecipe</key>
-	<string>com.github.homebysix.pkg.Zoom</string>
+	<string>com.github.novaksam.pkg.AndroidStudio</string>
 	<key>Process</key>
 	<array>
 		<dict>
