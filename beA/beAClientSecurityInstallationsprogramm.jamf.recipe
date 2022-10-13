@@ -11,11 +11,11 @@
 		<key>CATEGORY</key>
 		<string>Productivity</string>
 		<key>GROUP_NAME</key>
-		<string>beA Client Security Installationsprogramm-update-smart</string>
+		<string>beA-update-smart</string>
 		<key>GROUP_TEMPLATE</key>
 		<string>JamfSmartGroupTemplate.xml</string>
 		<key>NAME</key>
-		<string>beA Client Security Installationsprogramm</string>
+		<string>beA</string>
 		<key>POLICY_CATEGORY</key>
 		<string>Testing</string>
 		<key>POLICY_NAME</key>
