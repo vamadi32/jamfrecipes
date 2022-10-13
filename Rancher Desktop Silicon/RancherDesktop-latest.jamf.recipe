@@ -15,7 +15,7 @@
 			<key>GROUP_TEMPLATE</key>
 			<string>JamfSmartGroupTemplate.xml</string>
 			<key>NAME</key>
-			<string>RancherDesktop</string>
+			<string>Rancher Desktop</string>
 			<key>POLICY_CATEGORY</key>
 			<string>Testing</string>
 			<key>POLICY_NAME</key>
