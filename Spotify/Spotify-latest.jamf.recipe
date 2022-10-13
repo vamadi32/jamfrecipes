@@ -5,7 +5,7 @@
 	<key>Comment</key>
 	<string>Recipe automatically generated from com.github.jss-recipes.jss.Spotify by JamfRecipeMaker</string>
 	<key>Identifier</key>
-	<string>com.github.vamadi32.jamf.Spotify</string>
+	<string>com.github.vamadi32.jamf.Spotify-latest</string>
 	<key>Input</key>
 	<dict>
 		<key>CATEGORY</key>
