@@ -7,7 +7,7 @@
 	<key>Description</key>
 	<string>Downloads the latest version of Rancher Desktop.</string>
 	<key>Identifier</key>
-	<string>com.github.vamadi32.download.RancherDesktop</string>
+	<string>com.github.vamadi32.download.RancherDesktopSilicon</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
