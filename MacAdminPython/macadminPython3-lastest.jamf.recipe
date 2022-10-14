@@ -18,7 +18,7 @@ macadmins/python (“Recommended” build) from GitHub and uploads it to jamf pr
 			<key>NAME</key>
 			<string>Python3</string>
 			<key>POLICY_CATEGORY</key>
-			<string>Testing</string>
+			<string>%CATEGORY%</string>
 			<key>POLICY_NAME</key>
 			<string>Install Latest %NAME%</string>
 			<key>POLICY_TEMPLATE</key>
