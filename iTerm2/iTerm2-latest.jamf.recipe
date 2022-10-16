@@ -9,7 +9,7 @@
 	<key>Input</key>
 	<dict>
 		<key>CATEGORY</key>
-		<string>Computer Science</string>
+		<string>Integrated Development Environment</string>
 		<key>GROUP_NAME</key>
 		<string>iTerm2-update-smart</string>
 		<key>GROUP_TEMPLATE</key>
