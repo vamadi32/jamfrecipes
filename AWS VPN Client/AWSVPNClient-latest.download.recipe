@@ -5,7 +5,7 @@
 		<key>Description</key>
 		<string>Downloads the current release version of the AWS VPN Client and creates a package</string>
 		<key>Identifier</key>
-		<string>com.github.vamadi32.download.AWSVPNClient</string>
+		<string>com.github.vamadi32.download.AWSVPNClient-latest</string>
 		<key>Input</key>
 		<dict>
 			<key>DOWNLOAD_URL</key>
