@@ -1,0 +1,24 @@
+Description: Downloads the latest version of Webex and creates a package.
+Identifier: com.github.vamadi32.pkg.WebexSilicon-latest
+ParentRecipe: com.github.vamadi32.download.WebexSilicon-latest
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Webex
+
+Process:
+  - Processor: PkgRootCreator
+    Arguments:
+      pkgdirs: {}
+      pkgroot: '%RECIPE_CACHE_DIR%/payload'
+
+  - Processor: AppPkgCreator
+    Arguments:
+      app_path: '%pathname%/Webex.app'
+      pkg_path: '%RECIPE_CACHE_DIR%/%NAME%-%ARCHITECTURE%-%version%.pkg'
+
+  - Processor: com.github.smithjw.processors/FriendlyPathDeleter
+    Arguments:
+      fail_deleter_silently: True
+      path_list:
+        - '%RECIPE_CACHE_DIR%/payload'
