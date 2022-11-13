@@ -4,7 +4,7 @@ ParentRecipe: com.github.autopkg.grahampugh-recipes.jamf.Firefox
 MinimumVersion: '2.3'
 
 Input:
-  NAME: 'Firefox'
+  NAME: 'FireFox'
   CATEGORY: Browsers
   PATCH_ENABLED: 'true'
   PATCH_NAME: 'Mozilla %NAME%'
