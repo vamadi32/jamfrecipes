@@ -41,7 +41,7 @@
 		</criterion>
 		<criterion>
 			<name>Architecture Type</name>
-			<priority>0</priority>
+			<priority>4</priority>
 			<and_or>and</and_or>
 			<search_type>is</search_type>
 			<value>%GROUP_CRITERIA%</value>
