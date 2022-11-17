@@ -1,0 +1,23 @@
+Comment: DOWNLOAD_ARCHITECTURE should be x64 or arm64
+Description: Downloads the latest version of Rancher from GitHub.
+Identifier: com.github.vamadi32.download.RancherDesktopIntel
+MinimumVersion: '1.0.0'
+
+Input:
+  NAME: Rancher Desktop 
+  DOWNLOAD_ARCHITECTURE: x86_64
+
+Process:
+  - Processor: GitHubReleasesInfoProvider
+    Arguments:
+      github_repo: 'rancher-sandbox/rancher-desktop'
+      asset_regex: 'Rancher.Desktop-[0-9]+.[0-9]+.[0-9]+.%DOWNLOAD_ARCHITECTURE%.dmg'
+
+  - Processor: URLDownloader
+
+  - Processor: EndOfCheckPhase
+
+  - Processor: CodeSignatureVerifier
+    Arguments:
+      input_path: '%pathname%/%NAME%.app'
+      requirement: identifier "io.rancherdesktop.app" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "2Q6FHJR3H3"
