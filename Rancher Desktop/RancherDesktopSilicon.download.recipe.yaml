@@ -1,11 +1,11 @@
 Comment: DOWNLOAD_ARCHITECTURE should be x86_64 or aarch64
 Description: Downloads the latest version of Rancher from GitHub.
-Identifier: com.github.vamadi32.download.RancherDesktopIntel
+Identifier: com.github.vamadi32.download.RancherDesktopSilicon
 MinimumVersion: '1.0.0'
 
 Input:
   NAME: Rancher Desktop 
-  DOWNLOAD_ARCHITECTURE: x86_64
+  DOWNLOAD_ARCHITECTURE: aarch64
 
 Process:
   - Processor: GitHubReleasesInfoProvider

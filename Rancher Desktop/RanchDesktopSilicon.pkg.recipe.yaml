@@ -1,0 +1,12 @@
+Description: Downloads the latest version of Kap and creates a package.
+Identifier: com.github.vamadi32.pkg.RancherDesktopSilicon
+ParentRecipe: com.github.vamadi32.download.RancherDesktopSilicon
+MinimumVersion: '1.0.0'
+
+Input:
+  NAME: Rancher Desktop
+
+Process:
+  - Processor: AppPkgCreator
+    Arguments:
+      pkg_path: '%RECIPE_CACHE_DIR%/%NAME%-%DOWNLOAD_ARCHITECTURE%-%version%.pkg'
