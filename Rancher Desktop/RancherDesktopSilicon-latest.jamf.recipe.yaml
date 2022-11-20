@@ -7,7 +7,7 @@ MinimumVersion: '1.0.0'
 Input:
   NAME: Rancher Desktop
   CATEGORY: Virtualization
-  GROUP_CRITERIA: 'x86_64'
+  GROUP_CRITERIA: 'arm64'
   GROUP_NAME: '%NAME% - %DOWNLOAD_ARCHITECTURE% - update-smart'
   GROUP_TEMPLATE: 'SmartGroupTest-architecture-smart.xml'
   TESTING_GROUP_NAME: Testing
