@@ -1,0 +1,12 @@
+Description: Downloads the latest version of Kap and creates a package.
+Identifier: com.github.vamadi32.pkg.JetBrainsToolBoxSilicon-latest
+ParentRecipe: com.github.vamadi32.download.JetBrainsToolBoxSilicon
+MinimumVersion: '1.0.0'
+
+Input:
+  NAME: JetBrains Toolbox
+
+Process:
+  - Processor: AppPkgCreator
+    Arguments:
+      pkg_path: '%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg'

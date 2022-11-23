@@ -1,0 +1,33 @@
+Comment: |
+    Modify the ARCHITECTURE key and DOWNLOAD_TYPE to determine whether the Intel (mac) or Apple Silicon (macM1) version
+    of JetBrains ToolBox is downloaded. Defaults to Intel if not overridden.
+    eg "--key PLATFORM=m1"
+    Intel: mac
+    Apple Silicon: macM1
+    https://www.jetbrains.com/toolbox-app/download/download-thanks.html?platform=macM1
+    https://www.jetbrains.com/toolbox-app/download/download-thanks.html?platform=mac
+Description: Downloads the latest version of JetBrains ToolBox.
+Identifier: com.github.vamadi32.download.JetBrainsToolBoxSilicon
+MinimumVersion: '2.3'
+
+Input:
+    NAME: JetBrains Toolbox
+    PLATFORM: macM1
+
+
+Process:
+    - Processor: com.github.mosen.download.PyCharmPro/JetbrainsURLProvider
+      Arguments:
+          product_code: 'TBA'
+    
+    - Processor: URLDownloader
+      Arguments:
+          dmg_path: '%pathname%'
+          Processor: AppDmgVersioner
+    
+    - Processor: CodeSignatureVerifier
+      Arguments:
+          input_path: '%pathname%/JetBrains Toolbox.app'
+          requirement: identifier "com.jetbrains.toolbox" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "2ZEFAR8TH3"
+
+    - Processor: EndOfCheckPhase
