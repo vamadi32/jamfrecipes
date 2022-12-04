@@ -1,0 +1,35 @@
+Comment: |
+    Modify the os type key  to determine whether the Intel (mac) or Apple Silicon (macM1) version
+    of DBeaverCE is downloaded.
+    eg "--key os=macos-aarch64"
+    Intel: ma macos-x86_64c
+    Apple Silicon: macos-aarch64
+Description: Downloads the latest version of DBeaver  Community Edition.
+Identifier: com.github.vamadi32.download.DBeaverCE-latest
+MinimumVersion: '0.6.1'
+
+Input:
+    NAME: DBeaver
+    os: macos-aarch64
+
+Process:
+    - Processor: GitHubReleasesInfoProvider
+      Arguments:
+          github_repo: 'dbeaver/dbeaver'
+          asset_regex: (dbeaver-ce-[0-9]+.[0-9]+.[0-9]+[-_]+%os%.[^"]*)
+    
+    - Processor: URLDownloader
+      Arguments:
+          filename: '%NAME%-%version%-%os%.dmg'
+
+    - Processor: EndOfCheckPhase
+    - Processor: CodeSignatureVerifier
+      Arguments: 
+           input_path: "%pathname%/DBeaver.app"
+           requirement: identifier "org.jkiss.dbeaver.core.product" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "42B6MDKMW8"
+
+    - Processor: Versioner
+      Arguments: 
+           input_plist_path: "%pathname%/DBeaver.app/Contents/Info.plist"
+           plist_version_key: CFBundleShortVersionString
+

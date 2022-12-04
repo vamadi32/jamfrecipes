@@ -1,0 +1,12 @@
+Description: Downloads the latest version of DBeaver and creates a package.
+Identifier: com.github.vamadi32.pkg.DBeaverCE-latest
+ParentRecipe: com.github.vamadi32.download.DBeaverCE-latest
+MinimumVersion: '1.0.0'
+
+Input:
+  NAME: DBeaver
+
+Process:
+  - Processor: AppPkgCreator
+    Arguments:
+      pkg_path: '%RECIPE_CACHE_DIR%/%NAME%-%version%-%os%.pkg'

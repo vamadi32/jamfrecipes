@@ -1,4 +1,4 @@
-Description: Downloads the latest version of Kap and creates a package.
+Description: Downloads the latest version of JetBrains Toolbox and creates a package.
 Identifier: com.github.vamadi32.pkg.JetBrainsToolBoxSilicon-latest
 ParentRecipe: com.github.vamadi32.download.JetBrainsToolBoxSilicon
 MinimumVersion: '1.0.0'
