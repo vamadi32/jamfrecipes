@@ -1,0 +1,56 @@
+Identifier: com.github.vamadi32.jamf.GoogleChrome-all-patch
+ParentRecipe: com.github.rtrouton.pkg.googlechromeuniversal
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Google Chrome
+  SOFTWARE_TITLE: Google Chrome
+  CATEGORY: Browsers
+  GROUP_NAME: '%NAME%-update-smart'
+  GROUP_TEMPLATE: JamfSmartGroupTemplate.xml
+  TESTING_GROUP_NAME: Testing
+  POLICY_CATEGORY: Browsers
+  POLICY_TEMPLATE: JamfPolicyTemplate.xml
+  POLICY_NAME: 'Install Latest %NAME%'
+  POLICY_RUN_COMMAND: 'chown -R "$(stat -f%Su /dev/console):staff" "/Applications/%NAME%.app" && echo "Corrected permissions for %NAME%."'
+  SELF_SERVICE_DISPLAY_NAME: 'Install Latest %NAME%'
+  SELF_SERVICE_DESCRIPTION: 'Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier'
+  SELF_SERVICE_ICON: '%SOFTWARE_TITLE%.png'
+  INSTALL_BUTTON_TEXT: 'Install'
+  REINSTALL_BUTTON_TEXT: 'Install'
+  UPDATE_PREDICATE: 'pkg_uploaded == False'
+  PATCH_ENABLED: 'true'
+  PATCH_NAME: '%NAME%'
+  PATCH_SOFTWARE_TITLE: '%NAME%'
+  PATCH_TEMPLATE: PatchTemplate-selfservice.xml
+
+Process:
+  - Processor: com.github.grahampugh.jamf-upload.processors/JamfCategoryUploader
+    Arguments:
+      category_name: '%CATEGORY%'
+
+  - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+    Arguments:
+      pkg_category: '%CATEGORY%'
+
+  - Processor: StopProcessingIf
+    Arguments:
+      predicate: '%UPDATE_PREDICATE%'
+
+  - Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
+    Arguments:
+      computergroup_template: '%GROUP_TEMPLATE%'
+      computergroup_name: '%GROUP_NAME%'
+
+  - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
+    Arguments:
+      policy_template: '%POLICY_TEMPLATE%'
+      policy_name: '%POLICY_NAME%'
+      icon: '%SELF_SERVICE_ICON%'
+  
+  - Processor: com.github.grahampugh.jamf-upload.processors/JamfPatchUploader
+    Arguments:
+      patch_icon_policy_name: '%POLICY_NAME%'
+      patch_name: '%PATCH_NAME%'
+      patch_softwaretitle: '%PATCH_SOFTWARE_TITLE%'
+      patch_template: '%PATCH_TEMPLATE%'
