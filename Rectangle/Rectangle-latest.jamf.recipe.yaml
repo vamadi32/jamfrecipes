@@ -1,20 +1,21 @@
-Identifier: com.github.vamadi32.jamf.GoogleChrome-latest
-ParentRecipe: com.github.vamadi32.pkg.GoogleChrome-latest
+Description: Downloads latest Rectangle package and uploads it to jamf.
+Identifier: com.github.vamadi32.jamf.Rectangle-latest
+ParentRecipe: com.github.dataJAR-recipes.pkg.Rectangle
 MinimumVersion: '2.3'
 
 Input:
-  NAME: Google Chrome
-  SOFTWARE_TITLE: Google Chrome
-  CATEGORY: Browsers
+  NAME: Rectangle
+  SOFTWARE_TITLE: Rectangle
+  CATEGORY: Productivity
   GROUP_NAME: '%NAME%-update-smart'
   GROUP_TEMPLATE: JamfSmartGroupTemplate.xml
   TESTING_GROUP_NAME: Testing
-  POLICY_CATEGORY: Browsers
+  POLICY_CATEGORY: '%CATEGORY%'
   POLICY_TEMPLATE: JamfPolicyTemplateRunCommand.xml
   POLICY_NAME: 'Install Latest %NAME%'
   POLICY_RUN_COMMAND: 'chown -R "$(stat -f%Su /dev/console):staff" "/Applications/%NAME%.app" && echo "Corrected permissions for %NAME%."'
   SELF_SERVICE_DISPLAY_NAME: 'Install Latest %NAME%'
-  SELF_SERVICE_DESCRIPTION: 'Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier'
+  SELF_SERVICE_DESCRIPTION: 'Rectangle is an Open Source application that allows you to easily rearrange your open application windows with shortcut key combinations.'
   SELF_SERVICE_ICON: '%SOFTWARE_TITLE%.png'
   INSTALL_BUTTON_TEXT: 'Install'
   REINSTALL_BUTTON_TEXT: 'Install'
@@ -50,3 +51,4 @@ Process:
       policy_template: '%POLICY_TEMPLATE%'
       policy_name: '%POLICY_NAME%'
       icon: '%SELF_SERVICE_ICON%'
+
