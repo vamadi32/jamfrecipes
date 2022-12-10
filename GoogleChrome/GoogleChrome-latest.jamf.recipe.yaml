@@ -10,9 +10,8 @@ Input:
   GROUP_TEMPLATE: JamfSmartGroupTemplate.xml
   TESTING_GROUP_NAME: Testing
   POLICY_CATEGORY: Browsers
-  POLICY_TEMPLATE: JamfPolicyTemplateRunCommand.xml
+  POLICY_TEMPLATE: JamfPolicyTemplate.xml
   POLICY_NAME: 'Install Latest %NAME%'
-  POLICY_RUN_COMMAND: 'chown -R "$(stat -f%Su /dev/console):staff" "/Applications/%NAME%.app" && echo "Corrected permissions for %NAME%."'
   SELF_SERVICE_DISPLAY_NAME: 'Install Latest %NAME%'
   SELF_SERVICE_DESCRIPTION: 'Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier'
   SELF_SERVICE_ICON: '%SOFTWARE_TITLE%.png'

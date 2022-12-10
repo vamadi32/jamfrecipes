@@ -11,9 +11,8 @@ Input:
   GROUP_TEMPLATE: JamfSmartGroupTemplate.xml
   TESTING_GROUP_NAME: Testing
   POLICY_CATEGORY: '%CATEGORY%'
-  POLICY_TEMPLATE: JamfPolicyTemplateRunCommand.xml
+  POLICY_TEMPLATE: JamfPolicyTemplate.xml
   POLICY_NAME: 'Install Latest %NAME%'
-  POLICY_RUN_COMMAND: 'chown -R "$(stat -f%Su /dev/console):staff" "/Applications/%NAME%.app" && echo "Corrected permissions for %NAME%."'
   SELF_SERVICE_DISPLAY_NAME: 'Install Latest %NAME%'
   SELF_SERVICE_DESCRIPTION: 'Rectangle is an Open Source application that allows you to easily rearrange your open application windows with shortcut key combinations.'
   SELF_SERVICE_ICON: '%SOFTWARE_TITLE%.png'
