@@ -1,0 +1,36 @@
+---
+Description: Downloads both Arm and Intel verions of the Spotify App
+Identifier: com.github.vamadi32.download.Spotify-INTEL-latest
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Spotify
+  SUPPORTED_ARCH_INTEL: x86_64
+
+Process:
+  - Processor: URLDownloader
+    Arguments:
+      filename: '%NAME%-%SUPPORTED_ARCH_INTEL%.dmg'
+      download_dir: '%RECIPE_CACHE_DIR%/downloads'
+      url: 'https://download.scdn.co/Spotify.dmg'
+
+
+  - Processor: EndOfCheckPhase
+
+
+  - Processor: CodeSignatureVerifier
+    Arguments:
+      input_path: '%pathname%/Spotify.app'
+      requirement: |
+        identifier "com.spotify.client" and anchor apple generic and certificate 
+        1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] 
+        /* exists */ and certificate leaf[subject.OU] = "2FNC3A47ZF"
+      deep_verification: true
+      strict_verification: true
+
+  - Processor: Versioner
+    Arguments:
+      input_plist_path: '%pathname%/Spotify.app/Contents/Info.plist'
+      plist_version_key: CFBundleShortVersionString
+
+ 
