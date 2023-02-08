@@ -39,10 +39,6 @@ Process:
     Arguments:
       category_name: '%CATEGORY%'
 
-  - Processor: StopProcessingIf
-    Arguments:
-      predicate: '%UPDATE_PREDICATE%'
-
   - Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
     Arguments:
       computergroup_template: '%GROUP_TEMPLATE%'
