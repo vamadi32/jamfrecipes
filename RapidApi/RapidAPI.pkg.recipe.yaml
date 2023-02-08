@@ -1,0 +1,13 @@
+Comment: Created with Recipe Robot v2.2.0 (https://github.com/homebysix/recipe-robot)
+Description: Downloads the latest version of RapidAPI and creates a package.
+Identifier: com.github.vamadi32.pkg.RapidAPI
+ParentRecipe: com.github.vamadi32.download.RapidAPI
+MinimumVersion: 1.0.0
+
+Input:
+  NAME: RapidAPI
+
+Process:
+- Processor: AppPkgCreator
+  Arguments:
+    app_path: '%RECIPE_CACHE_DIR%/%NAME%/RapidAPI.app'
