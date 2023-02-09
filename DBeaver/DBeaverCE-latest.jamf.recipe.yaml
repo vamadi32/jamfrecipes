@@ -43,9 +43,12 @@ Process:
     Arguments:
       computergroup_template: '%GROUP_TEMPLATE%'
       computergroup_name: '%GROUP_NAME%'
+      replace_group: true
 
   - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
     Arguments:
       policy_template: '%POLICY_TEMPLATE%'
       policy_name: '%POLICY_NAME%'
       icon: '%SELF_SERVICE_ICON%'
+      replace_policy: true
+

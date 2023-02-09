@@ -10,7 +10,8 @@ Input:
   GROUP_TEMPLATE: JamfSmartGroupTemplate.xml
   TESTING_GROUP_NAME: Testing
   POLICY_CATEGORY: Browsers
-  POLICY_TEMPLATE: JamfPolicyTemplate.xml
+  POLICY_TEMPLATE: JamfPolicyTemplateRunCommand.xml
+  POLICY_RUN_COMMAND: 'chown -R "$(stat -f%Su /dev/console):staff" "/Applications/%NAME%.app" && echo "Corrected permissions for %NAME%."'
   POLICY_NAME: 'Install Latest %NAME%'
   SELF_SERVICE_DISPLAY_NAME: 'Install Latest %NAME%'
   SELF_SERVICE_DESCRIPTION: 'Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier'
@@ -35,17 +36,15 @@ Process:
     Arguments:
       pkg_category: '%CATEGORY%'
 
-  - Processor: StopProcessingIf
-    Arguments:
-      predicate: '%UPDATE_PREDICATE%'
-
   - Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
     Arguments:
       computergroup_template: '%GROUP_TEMPLATE%'
       computergroup_name: '%GROUP_NAME%'
+      replace_group: true
 
   - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
     Arguments:
       policy_template: '%POLICY_TEMPLATE%'
       policy_name: '%POLICY_NAME%'
       icon: '%SELF_SERVICE_ICON%'
+      replace_policy: true
