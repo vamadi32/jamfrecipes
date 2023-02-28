@@ -21,7 +21,7 @@
 		<key>POLICY_NAME</key>
 		<string>Install Latest %NAME%</string>
 		<key>POLICY_TEMPLATE</key>
-		<string>JamfPolicyTemplate.xml</string>
+		<string>JamfPolicyTemplateRunCommand.xml</string>
 		<key>SELF_SERVICE_DESCRIPTION</key>
 		<string>Google Chrome is a web browser.</string>
 		<key>SELF_SERVICE_DISPLAY_NAME</key>
