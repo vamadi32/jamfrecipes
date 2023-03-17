@@ -14,10 +14,10 @@ Input:
   POLICY_RUN_COMMAND: 'chown -R "$(stat -f%Su /dev/console):staff" "/Applications/%NAME%.app" && echo "Corrected permissions for %NAME%."'
   SCRIPT_NAME: preinstall.sh
   SCRIPT_PRIORITY: Before
-  PARAMETER4_LABEL: ""
+  PARAMETER4_LABEL: "%NAME%"
   PARAMETER5_LABEL: ""
   PARAMETER6_LABEL: ""
-  PARAMETER4_VALUE: ""
+  PARAMETER4_VALUE: "%NAME%"
   PARAMETER5_VALUE: ""
   PARAMETER6_VALUE: ""
   SELF_SERVICE_DESCRIPTION: Powerful and fast text editor and development environment.
