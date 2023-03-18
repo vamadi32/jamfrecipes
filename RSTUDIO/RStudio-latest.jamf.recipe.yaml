@@ -13,7 +13,7 @@ Input:
   POLICY_TEMPLATE: JamfPolicyTemplateScriptRunCommand.xml
   POLICY_RUN_COMMAND: 'chown -R "$(stat -f%Su /dev/console):staff" "/Applications/%NAME%.app" && echo "Corrected permissions for %NAME%."'
   SELF_SERVICE_DESCRIPTION: Powerful Integrated development environment for R.
-  SCRIPT_NAME: preinstall.sh
+  SCRIPT_NAME: rstudio_preinstall.sh
   SCRIPT_PRIORITY: Before
   SCRIPT_NOTES: "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA} \n- GitHub Actions Run Number: #${GITHUB_RUN_NUMBER}"
   PARAMETER4_LABEL: "%NAME%"
