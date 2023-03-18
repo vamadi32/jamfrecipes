@@ -15,7 +15,8 @@ Input:
   SELF_SERVICE_DESCRIPTION: Powerful Integrated development environment for R.
   SCRIPT_NAME: rstudio_preinstall.sh
   SCRIPT_PRIORITY: Before
-  SCRIPT_NOTES: "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA} \n- GitHub Actions Run Number: #${GITHUB_RUN_NUMBER}"
+  RUN_NUM: "%GITHUB_RUN_NUMBER%"
+  SCRIPT_NOTES: "%RUN_NUM%"
   PARAMETER4_LABEL: "%NAME%"
   PARAMETER5_LABEL: ""
   PARAMETER6_LABEL: ""
