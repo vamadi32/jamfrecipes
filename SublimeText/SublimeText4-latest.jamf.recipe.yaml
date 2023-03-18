@@ -14,6 +14,7 @@ Input:
   POLICY_RUN_COMMAND: 'chown -R "$(stat -f%Su /dev/console):staff" "/Applications/%NAME%.app" && echo "Corrected permissions for %NAME%."'
   SCRIPT_NAME: preinstall.sh
   SCRIPT_PRIORITY: Before
+  SCRIPT_NOTES: "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA} \n- GitHub Actions Run Number: #${GITHUB_RUN_NUMBER}"
   PARAMETER4_LABEL: "%NAME%"
   PARAMETER5_LABEL: ""
   PARAMETER6_LABEL: ""
@@ -43,6 +44,7 @@ Process:
       script_category: "%CATEGORY%"
       script_path: "%SCRIPT_NAME%"
       script_priority: "%SCRIPT_PRIORITY%"
+      script_notes: "%SCRIPT_NOTES%"
       script_parameter4: "%PARAMETER4_LABEL%"
       script_parameter5: "%PARAMETER5_LABEL%"
       script_parameter6: "%PARAMETER6_LABEL%"
