@@ -1,10 +1,10 @@
-Comment: Downloads the current release version of RStudio, builds a package, and uploads to jamf pro
-Identifier: com.github.vamadi32.jamf.RStudio-latest
-ParentRecipe: com.github.rtrouton.pkg.RStudio
+Comment: Downloads the current release version of R, builds a package, and uploads to jamf pro
+Identifier: com.github.vamadi32.jamf.R-latest
+ParentRecipe: com.github.grahampugh.recipes.pkg.R
 MinimumVersion: '2.3'
 
 Input:
-  NAME: RStudio 
+  NAME: R 
   CATEGORY: IDE
   GROUP_NAME: '%NAME%-update-smart'
   GROUP_TEMPLATE: JamfSmartGroupTemplate.xml
@@ -12,10 +12,10 @@ Input:
   POLICY_NAME: 'Install Latest %NAME%'
   POLICY_TEMPLATE: JamfPolicyTemplateScriptRunCommand.xml
   POLICY_RUN_COMMAND: 'chown -R "$(stat -f%Su /dev/console):staff" "/Applications/%NAME%.app" && echo "Corrected permissions for %NAME%."'
-  SELF_SERVICE_DESCRIPTION: Powerful Integrated development environment for R.
+  SELF_SERVICE_DESCRIPTION: Powerful Intepreted language used in conjuction with RStudio.
   SCRIPT_NAME: app_kill_preinstall.sh
+  GIT_REPO_PATH: .
   SCRIPT_PRIORITY: Before
-  RUN_NUM: "%GITHUB_RUN_NUMBER%"
   PARAMETER4_LABEL: "%NAME%"
   PARAMETER5_LABEL: ""
   PARAMETER6_LABEL: ""
@@ -34,7 +34,7 @@ Process:
   - Processor: StopProcessingIf
     Arguments:
       predicate: '%UPDATE_PREDICATE%'
-      
+
   - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
     Arguments:
       pkg_category: '%CATEGORY%'
@@ -44,10 +44,11 @@ Process:
       script_category: "%CATEGORY%"
       script_path: "%SCRIPT_NAME%"
       script_priority: "%SCRIPT_PRIORITY%"
-      script_notes: "%SCRIPT_NOTES%"
+      script_notes: "%NAME%"
       script_parameter4: "%PARAMETER4_LABEL%"
       script_parameter5: "%PARAMETER5_LABEL%"
       script_parameter6: "%PARAMETER6_LABEL%"
+      replace_script: 'True'
 
 
   - Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Recipe stub for any Shared Processors in this directory.
+    
+&lt;dict&gt;
+    &lt;key&gt;Processor&lt;/key&gt;
+    &lt;string&gt;com.github.scriptingosx.SharedProcessors/ProcessorName&lt;/string&gt;
+&lt;/dict&gt;
+
+
+    </string>
+    <key>Identifier</key>
+    <string>com.github.vamadi32.jamfrecipes.SharedProcessors</string>
+    <key>Input</key>
+    <dict/>
+    <key>MinimumVersion</key>
+    <string>0.6.1</string>
+    <key>Process</key>
+    <array/>
+</dict>
+</plist>
