@@ -13,6 +13,15 @@ Input:
   POLICY_TEMPLATE: JamfPolicyTemplateScriptRunCommand.xml
   POLICY_RUN_COMMAND: 'chown -R "$(stat -f%Su /dev/console):staff" "/Applications/%NAME%.app" && echo "Corrected permissions for %NAME%."'
   SELF_SERVICE_DESCRIPTION: Powerful Intepreted language used in conjuction with RStudio.
+  SCRIPT_NAME: app_kill_preinstall.sh
+  GIT_REPO_PATH: .
+  SCRIPT_PRIORITY: Before
+  PARAMETER4_LABEL: "%NAME%"
+  PARAMETER5_LABEL: ""
+  PARAMETER6_LABEL: ""
+  PARAMETER4_VALUE: "%NAME%"
+  PARAMETER5_VALUE: ""
+  PARAMETER6_VALUE: ""
   SELF_SERVICE_DISPLAY_NAME: 'Install Latest %NAME%'
   SELF_SERVICE_ICON: '%NAME%.png'
   TESTING_GROUP_NAME: Testing
@@ -29,6 +38,18 @@ Process:
   - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
     Arguments:
       pkg_category: '%CATEGORY%'
+  
+  - Processor: com.github.grahampugh.jamf-upload.processors/JamfScriptUploader
+    Arguments:
+      script_category: "%CATEGORY%"
+      script_path: "%SCRIPT_NAME%"
+      script_priority: "%SCRIPT_PRIORITY%"
+      script_notes: "%NAME%"
+      script_parameter4: "%PARAMETER4_LABEL%"
+      script_parameter5: "%PARAMETER5_LABEL%"
+      script_parameter6: "%PARAMETER6_LABEL%"
+      replace_script: 'True'
+
 
   - Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
     Arguments:

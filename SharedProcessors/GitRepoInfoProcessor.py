@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/local/autopkg/python
 import subprocess
 import plistlib
 from autopkglib import Processor, ProcessorError
