@@ -11,7 +11,7 @@ Input:
   POLICY_CATEGORY: '%CATEGORY%'
   POLICY_NAME: Install Latest %NAME%
   POLICY_TEMPLATE: JamfPolicyTemplateRunCommand.xml
-  POLICY_RUN_COMMAND: 'chown -R "$(stat -f%Su /dev/console):staff" "/Applications/%NAME%.app" && echo "Corrected permissions for %NAME%."'
+  POLICY_RUN_COMMAND: 'chown -R "$(stat -f%Su /dev/console):staff" "/Applications/%NAME%.app" && echo "Corrected permissions for %NAME%.";ditto /Applications/Viscosity.app/Contents/Library/LaunchServices/com.sparklabs.ViscosityHelper /Library/PrivilegedHelperTools/'
   SELF_SERVICE_DESCRIPTION: Viscosity is a VPN Client.
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELF_SERVICE_ICON: '%NAME%.png'
