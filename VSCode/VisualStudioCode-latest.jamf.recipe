@@ -65,7 +65,7 @@
 				<key>computergroup_template</key>
 				<string>%GROUP_TEMPLATE%</string>
 				<key>replace_group</key>
-				<string>True</string>
+				<string>False</string>
 			</dict>
 			<key>Processor</key>
 			<string>com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader</string>

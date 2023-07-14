@@ -34,11 +34,11 @@ Process:
     Arguments:
       computergroup_name: '%GROUP_NAME%'
       computergroup_template: '%GROUP_TEMPLATE%'
-      replace_group: 'True'
+      replace_group: False
 
   - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
     Arguments:
       icon: '%SELF_SERVICE_ICON%'
       policy_name: '%POLICY_NAME%'
       policy_template: '%POLICY_TEMPLATE%'
-      replace_policy: 'True'
+      replace_policy: True
