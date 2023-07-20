@@ -1,0 +1,23 @@
+Identifier: com.github.vamadi32.jamf.AWSVPNClient-patch
+ParentRecipe: com.github.vamadi32.jamf.AWSVPNClient-latest
+MinimumVersion: '2.3'
+
+Input:
+  NAME: AWS VPN Client
+  CATEGORY: Utilities
+  PATCH_NAME: 'Amazon %NAME%'
+  PATCH_SOFTWARE_TITLE: 'Amazon %NAME%'
+  PATCH_TEMPLATE: 'PatchTemplate-selfserviceNoNotification.xml'
+  POLICY_NAME: '%NAME%'
+  PATCH_ENABLED: 'true'
+  PATCH_UNKNOWN: 'true'
+  PATCH_GRACE: '20'
+  PATCH_ICON_POLICY_NAME: '%NAME%'
+
+Process:
+  - Processor: com.github.grahampugh.jamf-upload.processors/JamfPatchUploader
+    Arguments:
+      patch_name: '%PATCH_NAME%'
+      patch_template: '%PATCH_TEMPLATE%'
+      patch_softwaretitle: '%PATCH_SOFTWARE_TITLE%'
+      patch_icon_policy_name: '%PATCH_ICON_POLICY_NAME%'
