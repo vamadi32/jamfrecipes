@@ -1,0 +1,34 @@
+Description: Downloads the current release version of the AWS VPN Client and creates a package
+Identifier: com.github.vamadi32.download.AWSVPNClient-latest
+MinimumVersion: 0.2.0
+
+Input:
+  NAME: AWS VPN Client
+  DOWNLOAD_URL: https://d20adtppz83p9s.cloudfront.net/OSX/latest/AWS_VPN_Client.pkg
+
+Process:
+- Processor: URLDownloader
+  Arguments:
+    filename: '%NAME%.pkg'
+    url: '%DOWNLOAD_URL%'
+
+- Processor: EndOfCheckPhase
+
+- Processor: FlatPkgUnpacker
+  Arguments:
+    destination_path: '%RECIPE_CACHE_DIR%/expand'
+    flat_pkg_path: '%pathname%'
+
+- Processor: PkgPayloadUnpacker
+  Arguments:
+    destination_path: '%RECIPE_CACHE_DIR%/expand/payload'
+    pkg_payload_path: '%RECIPE_CACHE_DIR%/expand/AWS_VPN_Client.pkg/Payload'
+
+- Processor: Versioner
+  Arguments:
+    input_plist_path: '%RECIPE_CACHE_DIR%/expand/payload/%NAME%/%NAME%.app/Contents/Info.plist'
+
+- Processor: PkgCopier
+  Arguments:
+    pkg_path: '%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg'
+    source_pkg: '%pathname%'

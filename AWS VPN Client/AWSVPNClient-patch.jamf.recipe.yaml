@@ -4,7 +4,7 @@ MinimumVersion: '2.3'
 
 Input:
   NAME: AWS VPN Client
-  CATEGORY: Utilities
+  CATEGORY: VPN
   PATCH_NAME: 'Amazon %NAME%'
   PATCH_SOFTWARE_TITLE: 'Amazon %NAME%'
   PATCH_TEMPLATE: 'PatchTemplate-selfserviceNoNotification.xml'
