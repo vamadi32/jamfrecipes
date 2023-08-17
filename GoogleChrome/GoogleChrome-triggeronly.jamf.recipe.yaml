@@ -1,4 +1,4 @@
-Identifier: com.github.vamadi32.jamf.GoogleChrome-latest
+Identifier: com.github.vamadi32.jamf.GoogleChrome-triggeronly
 ParentRecipe: com.github.vamadi32.pkg.GoogleChrome-latest
 MinimumVersion: '2.3'
 
@@ -6,18 +6,13 @@ Input:
   NAME: Google Chrome
   SOFTWARE_TITLE: Google Chrome
   CATEGORY: Browsers
-  GROUP_NAME: '%NAME%-update-smart'
-  GROUP_TEMPLATE: SmartGroup-update-smart-regex.xml
-  TESTING_GROUP_NAME: Testing
-  POLICY_CATEGORY: Browsers
-  POLICY_TEMPLATE: JamfPolicyTemplateRunCommand.xml
-  POLICY_RUN_COMMAND: 'chown -R "$(stat -f%Su /dev/console):staff" "/Applications/%NAME%.app" && echo "Corrected permissions for %NAME%."'
-  POLICY_NAME: 'Install Latest %NAME%'
-  SELF_SERVICE_DISPLAY_NAME: 'Install Latest %NAME%'
-  SELF_SERVICE_DESCRIPTION: 'Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier'
-  SELF_SERVICE_ICON: '%SOFTWARE_TITLE%.png'
-  INSTALL_BUTTON_TEXT: 'Install'
-  REINSTALL_BUTTON_TEXT: 'Install'
+  POLICY_CATEGORY: Mac-Enrollment
+  TRIGGER_NAME: "install_chrome"
+  TRIGGER_POLICY_NAME: "[01_macEnrollment] macEnroll %NAME%"
+  TRIGGER_POLICY_CATEGORY: "Browsers"
+  TRIGGER_POLICY_RUN_COMMAND: 'macEnrollInstallChrome'
+  POLICY_TEMPLATE: JamfPolicyTemplateTriggerOnly.xml
+  POLICY_NAME: '%TRIGGER_POLICY_NAME%'
   UPDATE_PREDICATE: 'pkg_uploaded == False'
   STOP_PREDICATE: "NOT virus_total_analyzer_summary_result.data.ratio BEGINSWITH '0'"
 
@@ -40,16 +35,9 @@ Process:
       pkg_category: '%CATEGORY%'
       replace_category: true
 
-  - Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
-    Arguments:
-      computergroup_template: '%GROUP_TEMPLATE%'
-      computergroup_name: '%GROUP_NAME%'
-      replace_group: true
-
   - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
     Arguments:
       policy_template: '%POLICY_TEMPLATE%'
       policy_name: '%POLICY_NAME%'
       policy_category: '%CATEGORY%'
-      icon: '%SELF_SERVICE_ICON%'
       replace_policy: true
