@@ -7,10 +7,9 @@ Input:
   SOFTWARE_TITLE: Google Chrome
   CATEGORY: Browsers
   POLICY_CATEGORY: Mac-Enrollment
-  TRIGGER_NAME: "install_chrome"
+  TRIGGER_NAME: "macEnrollInstallChrome"
   TRIGGER_POLICY_NAME: "[01_macEnrollment] macEnroll %NAME%"
   TRIGGER_POLICY_CATEGORY: "Browsers"
-  TRIGGER_POLICY_RUN_COMMAND: 'macEnrollInstallChrome'
   POLICY_TEMPLATE: JamfPolicyTemplateTriggerOnly.xml
   POLICY_NAME: '%TRIGGER_POLICY_NAME%'
   UPDATE_PREDICATE: 'pkg_uploaded == False'

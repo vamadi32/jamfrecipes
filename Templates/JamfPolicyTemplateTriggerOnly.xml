@@ -42,7 +42,4 @@
     <maintenance>
         <recon>false</recon>
     </maintenance>
-    <files_processes>
-        <run_command>%TRIGGER_POLICY_RUN_COMMAND%</run_command>
-    </files_processes>
 </policy>
