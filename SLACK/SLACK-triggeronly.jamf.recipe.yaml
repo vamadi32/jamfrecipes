@@ -1,0 +1,42 @@
+Identifier: com.github.vamadi32.jamf.SLACK-triggeronly
+ParentRecipe: com.github.killahquam.pkg.slack
+MinimumVersion: '2.3'
+
+Input:
+  NAME: SLACK
+  SOFTWARE_TITLE: SLACK
+  CATEGORY: Collaboration
+  POLICY_CATEGORY: Mac-Enrollment
+  TRIGGER_NAME: "macEnrollInstallSlack"
+  TRIGGER_POLICY_NAME: "[02_macEnrollment] macEnroll Install %NAME%"
+  TRIGGER_POLICY_CATEGORY: "Collaboration"
+  POLICY_TEMPLATE: JamfPolicyTemplateTriggerOnly.xml
+  POLICY_NAME: '%TRIGGER_POLICY_NAME%'
+  UPDATE_PREDICATE: 'pkg_uploaded == False'
+  STOP_PREDICATE: "NOT virus_total_analyzer_summary_result.data.ratio BEGINSWITH '0'"
+
+Process:
+  - Processor: io.github.hjuutilainen.VirusTotalAnalyzer/VirusTotalAnalyzer
+
+  - Processor: StopProcessingIf
+    Arguments:
+      predicate: "%STOP_PREDICATE%"
+
+  - Processor: com.github.grahampugh.recipes.commonprocessors/VersionRegexGenerator
+
+  - Processor: com.github.grahampugh.jamf-upload.processors/JamfCategoryUploader
+    Arguments:
+      category_name: '%CATEGORY%'
+      replace_category: true
+
+  - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+    Arguments:
+      pkg_category: '%CATEGORY%'
+      replace_category: true
+
+  - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
+    Arguments:
+      policy_template: '%POLICY_TEMPLATE%'
+      policy_name: '%POLICY_NAME%'
+      policy_category: '%CATEGORY%'
+      replace_policy: true
