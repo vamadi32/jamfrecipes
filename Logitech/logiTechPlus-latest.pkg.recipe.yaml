@@ -1,0 +1,63 @@
+Description: Downloads the latest version of the Logi Options+ installer app, and creates a package. This package
+  deploys the installer to /tmp and then installs the app silently.
+Identifier: com.github.vamadi32.pkg.logiTechPlus-latest
+MinimumVersion: '2.3'
+ParentRecipe: com.github.vamadi32.download.logiTechPlus-latest
+
+Input:
+  NAME: Logi OptionsPlus
+  URL: https://download01.logi.com/web/ftp/pub/techsupport/optionsplus/logioptionsplus_installer.zip
+
+Process:
+  - Processor: PkgRootCreator
+    Arguments:
+      pkgdirs:
+        scripts: "0755"
+        root: "0755"
+        root/private: "0755"
+        root/private/tmp: "0777"
+      pkgroot: "%RECIPE_CACHE_DIR%/pkg"
+
+  - Processor: FileMover
+    Arguments:
+      overwrite: false
+      source: "%found_filename%"
+      target: "%RECIPE_CACHE_DIR%/pkg/root/private/tmp/logioptionsplus.app"
+
+  - Processor: com.github.dataJAR-recipes.Shared Processors/QuarantineRemover
+    Arguments:
+      quarantined_files_path: "%RECIPE_CACHE_DIR%/pkg/root/private/tmp/logioptionsplus.app"
+
+
+  - Processor: FileCreator
+    Arguments:
+      file_path: "%RECIPE_CACHE_DIR%/pkg/scripts/postinstall"
+      file_mode: "0755"
+      file_content: |
+        #!/bin/zsh
+
+        # Check exit code and bail if the package didn't install correctly
+        if [[ -e "/private/tmp/logioptionsplus.app" ]]; then
+            if ! "/private/tmp/logioptionsplus.app/Contents/MacOS/logioptionsplus_installer" --quiet; then
+                echo "Issues occurred during the installation of Logi Options+. Please check the install log and try again."
+                exit 1
+            fi
+        else
+            echo "Unable to find Logi Options+ installer. Bailing..."
+            exit 1
+        fi
+
+  - Processor: PkgCreator
+    Arguments:
+      pkg_request:
+        id: "%BUNDLE_ID%"
+        options: purge_ds_store
+        pkgname: "%NAME%-%version%"
+        pkgroot: "%RECIPE_CACHE_DIR%/pkg/root"
+        scripts: "%RECIPE_CACHE_DIR%/pkg/scripts"
+        version: "%version%"
+
+  - Processor: PathDeleter
+    Arguments:
+      path_list:
+        - "%RECIPE_CACHE_DIR%/unzip"
