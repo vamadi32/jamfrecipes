@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mac_application>
+    <general>
+        <name>%macapp_name%</name>
+        <version>%macapp_version%</version>
+        <is_free>%macapp_is_free%</is_free>
+        <bundle_id>%bundleid%</bundle_id>
+        <url>%appstore_url%</url>
+        <category>
+            <name>%CATEGORY%</name>
+        </category>
+        <site>
+            <name>None</name>
+        </site>
+        <deployment_type>%DEPLOYMENT_TYPE%</deployment_type>
+    </general>
+    <scope>
+        <all_computers>false</all_computers>
+        <computer_groups/>
+        <exclusions>
+            <computer_groups/>
+        </exclusions>
+    </scope>
+    <self_service/>
+    <vpp_codes/>
+    <vpp>
+        <assign_vpp_device_based_licenses>true</assign_vpp_device_based_licenses>
+        <vpp_admin_account_id>%vpp_id%</vpp_admin_account_id>
+    </vpp>
+</mac_application>
