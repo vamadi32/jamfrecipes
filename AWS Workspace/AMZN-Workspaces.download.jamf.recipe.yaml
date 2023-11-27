@@ -1,0 +1,43 @@
+Comment: Created with Recipe Robot v2.3.1 (https://github.com/homebysix/recipe-robot)
+Description: Downloads the latest version of Autoupdate.
+Identifier: com.vamadi32.download.AMZN-Workspaces
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Workspaces
+  DOWNLOAD_URL: "https://d2td7dqidlhjx7.cloudfront.net/prod/global/osx/WorkSpaces.pkg"
+
+Process:
+- Processor: URLDownloader
+  Arguments:
+    filename: '%NAME%.pkg'
+    url: '%DOWNLOAD_URL%'
+
+- Processor: EndOfCheckPhase
+
+- Processor: CodeSignatureVerifier
+  Arguments:
+    expected_authority_names:
+    - 'Developer ID Installer: AMZN Mobile LLC (94KV3E626L)'
+    - Developer ID Certification Authority
+    - Apple Root CA
+    input_path: '%pathname%'
+
+- Processor: FlatPkgUnpacker
+  Arguments:
+    destination_path: '%RECIPE_CACHE_DIR%/expand'
+    flat_pkg_path: '%pathname%'
+
+- Processor: PkgPayloadUnpacker
+  Arguments:
+    pkg_payload_path: '%RECIPE_CACHE_DIR%/expand/Payload'
+    destination_path: '%RECIPE_CACHE_DIR%/expand/%NAME%.app'
+
+- Processor: Versioner
+  Arguments:
+    input_plist_path: '%RECIPE_CACHE_DIR%/expand/%NAME%.app/Contents/Info.plist'
+
+- Processor: PkgCopier
+  Arguments:
+    pkg_path: '%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg'
+    source_pkg: '%pathname%'

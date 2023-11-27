@@ -1,7 +1,7 @@
 Comment: Created with Recipe Robot v2.2.0 (https://github.com/homebysix/recipe-robot)
 Description: Downloads the latest version of RapidAPI.
 Identifier: com.github.vamadi32.download.RapidAPI
-MinimumVersion: 1.0.0
+MinimumVersion: '2.3'
 
 Input:
   NAME: RapidAPI

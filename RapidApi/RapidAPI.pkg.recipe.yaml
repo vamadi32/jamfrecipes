@@ -2,22 +2,12 @@ Comment: Created with Recipe Robot v2.2.0 (https://github.com/homebysix/recipe-r
 Description: Downloads the latest version of RapidAPI and creates a package.
 Identifier: com.github.vamadi32.pkg.RapidAPI
 ParentRecipe: com.github.vamadi32.download.RapidAPI
-MinimumVersion: 0.5.0
+MinimumVersion: '2.3'
 
 Input:
   NAME: RapidAPI
-  BUNDLE_ID: com.luckymarmot.Paw
 
 Process:
-- Processor: PkgCreator
+- Processor: AppPkgCreator
   Arguments:
-    pkg_request:
-      chown:
-      - group: admin
-        path: Applications
-        user: root
-      id: '%BUNDLE_ID%'
-      options: purge_ds_store
-      pkgname: '%NAME%-%version%'
-      pkgroot: '%RECIPE_CACHE_DIR%/%NAME%'
-      version: '%version%'
+    app_path: '%RECIPE_CACHE_DIR%/%NAME%/RapidAPI.app'
