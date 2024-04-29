@@ -1,0 +1,45 @@
+Identifier: com.github.vamadi32.jamf.Python3-fixed-version
+ParentRecipe: com.github.mlbz521.pkg.Python-Version
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Python
+  MATCH_VERSION: '3.12'
+  SOFTWARE_TITLE: Python
+  CATEGORY: Intepreter
+  POLICY_CATEGORY: Intepreter
+  TESTING_GROUP_NAME: Testing
+  TRIGGER_POLICY_NAME: 'install-%MATCH_VERSION%'
+  TRIGGER_NAME: 'install-%MATCH_VERSION%'
+  TRIGGER_POLICY_CATEGORY: Intepreter
+  POLICY_TEMPLATE: JamfPolicyTemplateSelfServiceAllComputers.xml
+  POLICY_NAME: 'Install Latest %NAME%-3'
+  SELF_SERVICE_DISPLAY_NAME: 'Install %NAME% %MATCH_VERSION%'
+  SELF_SERVICE_DESCRIPTION: 'A Python interpreter is a program that reads and executes Python code'
+  SELF_SERVICE_ICON: '%SOFTWARE_TITLE%.png'
+  INSTALL_BUTTON_TEXT: 'Install'
+  REINSTALL_BUTTON_TEXT: 'Install'
+  UPDATE_PREDICATE: 'pkg_uploaded == False'
+  STOP_PREDICATE: "NOT virus_total_analyzer_summary_result.data.ratio BEGINSWITH '0'"
+
+Process:
+
+  - Processor: com.github.grahampugh.recipes.commonprocessors/VersionRegexGenerator
+
+  - Processor: com.github.grahampugh.jamf-upload.processors/JamfCategoryUploader
+    Arguments:
+      category_name: '%CATEGORY%'
+      replace_category: true
+
+  - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+    Arguments:
+      pkg_category: '%CATEGORY%'
+      replace_category: true
+
+  - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
+    Arguments:
+      policy_template: '%POLICY_TEMPLATE%'
+      policy_name: '%POLICY_NAME%'
+      policy_category: '%CATEGORY%'
+      icon: '%SELF_SERVICE_ICON%'
+      replace_policy: true
