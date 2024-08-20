@@ -1,0 +1,33 @@
+Description: Recipe description
+Identifier: com.github.vamadi32.download.tsh-fixed-version
+MinimumVersion: '2.3'
+
+Input:
+  NAME: tsh
+  MATCH_VERSION: '\d+\.\d+\.\d+'
+
+Process:
+- Processor: URLTextSearcher
+  Arguments:
+    url: 'https://goteleport.com/docs/changelog/'
+    re_pattern: '(?P<version>%MATCH_VERSION%) \([^)]*\)'
+    result_output_var_name: version
+
+- Processor: com.github.mlbz521.SharedProcessors/VersionMajorMinor
+  Arguments:
+    version: "%version%"
+
+- Processor: URLDownloader
+  Arguments:
+    url: 'https://cdn.teleport.dev/tsh-%version%.pkg'
+    filename: '%NAME%-%version%.pkg'
+
+- Processor: EndOfCheckPhase
+
+- Processor: CodeSignatureVerifier
+  Arguments:
+    input_path: '%pathname%'
+    expected_authority_names:
+      - 'Developer ID Installer: Gravitational Inc. (QH8AA5B8UP)'
+      - 'Developer ID Certification Authority'
+      - 'Apple Root CA'

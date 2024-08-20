@@ -1,0 +1,60 @@
+Description: Downloads latest tsh package and uploads it to jamf.
+Identifier: com.github.vamadi32.jamf.tsh-fixed-version
+ParentRecipe: com.github.vamadi32.pkg.tsh-fixed-version
+MinimumVersion: '2.3'
+
+Input:
+  NAME: tsh
+  SOFTWARE_TITLE: tsh
+  MATCH_VERSION: '15.4.10'
+  CATEGORY: Productivity
+  GROUP_NAME: '%NAME%-update-smart'
+  GROUP_TEMPLATE: JamfSmartGroupWithExclusionTemplate.xml
+  TESTING_GROUP_NAME: 'App-Testers'
+  EXCLUSION_GROUP_NAME: 'High Risk'
+  POLICY_CATEGORY: '%CATEGORY%'
+  POLICY_TEMPLATE: JamfPolicySSCategroyTemplate.xml
+  POLICY_NAME: 'Install %NAME%'
+  SELF_SERVICE_DISPLAY_NAME: 'Install %NAME%'
+  SELF_SERVICE_DESCRIPTION: 'tsh is a CLI client used by Teleport users. It allows users to interact with current and past sessions on the cluster, copy files to and from nodes.'
+  SELF_SERVICE_ICON: '%SOFTWARE_TITLE%.png'
+  SELF_SERVICE_CATEGORY: '%CATEGORY%'
+  SELF_SERVICE_FEATURE_BOOLEAN: 'false'
+  INSTALL_BUTTON_TEXT: 'Install'
+  REINSTALL_BUTTON_TEXT: 'Install'
+  POLICY_RUN_COMMAND: 'install_tsh'
+  UPDATE_PREDICATE: 'pkg_uploaded == False'
+  STOP_PREDICATE: "NOT virus_total_analyzer_summary_result.data.ratio BEGINSWITH '0'"
+
+Process:
+  - Processor: io.github.hjuutilainen.VirusTotalAnalyzer/VirusTotalAnalyzer
+
+  - Processor: StopProcessingIf
+    Arguments:
+      predicate: "%STOP_PREDICATE%"
+
+  - Processor: com.github.grahampugh.jamf-upload.processors/JamfCategoryUploader
+    Arguments:
+      category_name: '%CATEGORY%'
+
+  - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+    Arguments:
+      pkg_category: '%CATEGORY%'
+
+  - Processor: StopProcessingIf
+    Arguments:
+      predicate: '%UPDATE_PREDICATE%'
+
+  - Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
+    Arguments:
+      computergroup_template: '%GROUP_TEMPLATE%'
+      computergroup_name: '%GROUP_NAME%'
+      replace_group: True
+
+  - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
+    Arguments:
+      policy_template: '%POLICY_TEMPLATE%'
+      policy_name: '%POLICY_NAME%'
+      icon: '%SELF_SERVICE_ICON%'
+      replace_policy: True
+
