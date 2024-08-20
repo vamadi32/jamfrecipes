@@ -1,0 +1,20 @@
+Description: |
+  Downloads the latest or specified version of tsh(teleport) and creates a package.  Stable builds are checked first, then pre-release builds.
+  Options:
+    * To download the latest version of tsh, use (this is REGEX):  \d+
+    * To download a specific minor version, for example, you can use:  "10" or "3.10"
+    * You can download a pre-release build if the minor version does not yet have a stable release
+
+  The recipe will also set the env variable `version_major_minor` that can be used in child recipes.
+
+  This recipe defers from the Python3 recipe in scriptingosx-recipes repo by allowing the version to be specified.
+Identifier: com.github.vamadi32.pkg.tsh-fixed-version
+ParentRecipe: com.github.vamadi32.download.tsh-fixed-version
+MinimumVersion: "2.3"
+Input:
+  NAME: tsh
+Process:
+  - Processor: com.github.mlbz521.SharedProcessors/RenamePath
+    Arguments:
+      source_path: "%pathname%"
+      new_name: "%RECIPE_CACHE_DIR%/downloads/%NAME%-%version%.pkg"
