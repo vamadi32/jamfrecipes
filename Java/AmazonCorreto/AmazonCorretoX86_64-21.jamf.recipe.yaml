@@ -9,9 +9,11 @@ Input:
   CATEGORY: Interpreter
   GROUP_CRITERIA: 'x86_64'
   GROUP_NAME: '%NAME% - %GROUP_CRITERIA% - update-smart'
-  GROUP_TEMPLATE: 'JamfSmartGroup-architecture-with-exclusion-smart.xml'
+  DEPARTMENT_GROUP_NAME: ''
+  ALLOWED_GROUP_NAME: ''
+  GROUP_TEMPLATE: 'JamfSmartGroup-arch-department-with-exclusion-smart.xml'
   TESTING_GROUP_NAME: Testing
-  EXCLUSION_GROUP_NAME: ""
+  EXCLUSION_GROUP_NAME: ''
   POLICY_CATEGORY: '%CATEGORY%'
   POLICY_TEMPLATE: JamfPolicyTemplate.xml
   POLICY_NAME: 'Install Latest %NAME% (%GROUP_CRITERIA%)'
