@@ -6,12 +6,12 @@ Input:
   NAME: Python
   MATCH_VERSION: '3.12'
   SOFTWARE_TITLE: Python
-  CATEGORY: Intepreter
-  POLICY_CATEGORY: Intepreter
+  CATEGORY: Interpreter
+  POLICY_CATEGORY: Interpreter
   TESTING_GROUP_NAME: Testing
   TRIGGER_POLICY_NAME: 'install-%MATCH_VERSION%'
   TRIGGER_NAME: 'install-%MATCH_VERSION%'
-  TRIGGER_POLICY_CATEGORY: Intepreter
+  TRIGGER_POLICY_CATEGORY: Interpreter
   POLICY_TEMPLATE: JamfPolicyTemplateSelfServiceAllComputers.xml
   POLICY_NAME: 'Install Latest %NAME%-3'
   SELF_SERVICE_DISPLAY_NAME: 'Install %NAME% %MATCH_VERSION%'
