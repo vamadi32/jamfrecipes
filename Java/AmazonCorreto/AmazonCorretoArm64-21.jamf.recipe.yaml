@@ -9,7 +9,7 @@ Input:
   CATEGORY: Interpreter
   GROUP_CRITERIA: 'arm64'
   GROUP_NAME: '%NAME% - %GROUP_CRITERIA% - update-smart'
-  DEPARTMENT_GROUP_NAME: ''
+  ALLOWED_DEPARTMENT_GROUP_NAME: ''
   ALLOWED_GROUP_NAME: ''
   GROUP_TEMPLATE: 'JamfSmartGroup-arch-department-with-exclusion-smart.xml'
   TESTING_GROUP_NAME: Testing
