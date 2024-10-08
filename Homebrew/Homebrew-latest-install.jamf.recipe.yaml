@@ -1,0 +1,59 @@
+Description: Downloads the current release  of Homebrew.sh, builds a package then, uploads the package to the Jamf Pro Server and creates a Self Service Policy and Smart Group.
+Identifier: com.github.vamadi32.jamf.Homebrew-latest-install
+ParentRecipe: com.github.grahampugh.recipes.install.Homebrew
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Homebrew
+  CATEGORY: Packaging
+  GROUP_NAME: '%NAME% - update-smart'
+  ALLOWED_DEPARTMENT_GROUP_NAME: 'All users in Engineering and Product Department'
+  ALLOWED_GROUP_NAME: ''
+  GROUP_TEMPLATE: ''
+  TESTING_GROUP_NAME: Testing
+  EXCLUSION_GROUP_NAME: ''
+  POLICY_CATEGORY: '%CATEGORY%'
+  POLICY_TEMPLATE: JamfPolicyTemplate.xml
+  POLICY_NAME: 'Install Latest %NAME%'
+  SELF_SERVICE_DISPLAY_NAME: '%POLICY_NAME%'
+  SELF_SERVICE_DESCRIPTION: 'Homebrew is a free and open-source software that simplifies the installation of software on Apple Systems'
+  SELF_SERVICE_ICON: 'Homebrew.png'
+  SOFTWARE_TITLE: '%NAME%'
+  INSTALL_BUTTON_TEXT: 'Install'
+  REINSTALL_BUTTON_TEXT: 'Install'
+  UPDATE_PREDICATE: 'pkg_uploaded == False'
+  STOP_PREDICATE: "NOT virus_total_analyzer_summary_result.data.ratio BEGINSWITH '0'"
+
+Process:
+  - Processor: io.github.hjuutilainen.VirusTotalAnalyzer/VirusTotalAnalyzer
+
+  - Processor: StopProcessingIf
+    Arguments:
+      predicate: "%STOP_PREDICATE%"
+
+  - Processor: com.github.grahampugh.jamf-upload.processors/JamfCategoryUploader
+    Arguments:
+      category_name: '%CATEGORY%'
+      replace_category: true
+
+  - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+    Arguments:
+      pkg_category: '%CATEGORY%'
+      replace_category: true
+
+  - Processor: StopProcessingIf
+    Arguments:
+      predicate: '%UPDATE_PREDICATE%'
+
+  - Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
+    Arguments:
+      computergroup_template: '%GROUP_TEMPLATE%'
+      computergroup_name: '%GROUP_NAME%'
+      replace_group: true
+
+  - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
+    Arguments:
+      policy_template: '%POLICY_TEMPLATE%'
+      policy_name: '%POLICY_NAME%'
+      icon: '%SELF_SERVICE_ICON%'
+      replace_policy: true
