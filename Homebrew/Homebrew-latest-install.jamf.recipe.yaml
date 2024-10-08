@@ -7,7 +7,7 @@ Input:
   NAME: Homebrew
   CATEGORY: Packaging
   GROUP_NAME: '%NAME% - update-smart'
-  ALLOWED_DEPARTMENT_GROUP_NAME: 'All users in Engineering and Product Department'
+  ALLOWED_DEPARTMENT_GROUP_NAME: ''
   ALLOWED_GROUP_NAME: ''
   GROUP_TEMPLATE: ''
   TESTING_GROUP_NAME: Testing
