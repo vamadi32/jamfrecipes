@@ -1,5 +1,5 @@
 Identifier: com.github.vamadi32.jamf.SLACK-triggeronly
-ParentRecipe: com.github.killahquam.pkg.slack
+ParentRecipe: com.github.rtrouton.pkg.SlackUniversal
 MinimumVersion: '2.3'
 
 Input:
