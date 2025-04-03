@@ -19,3 +19,4 @@ Process:
     patch_name: '%PATCH_NAME%'
     patch_softwaretitle: '%PATCH_SOFTWARE_TITLE%'
     patch_template: '%PATCH_TEMPLATE%'
+    replace_patch: 'true'

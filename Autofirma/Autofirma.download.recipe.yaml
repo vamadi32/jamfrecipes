@@ -1,0 +1,57 @@
+Description: "Downloads the current release version of AutoFirma and creates a package."
+Identifier: "com.github.vamadi32.download.AutoFirma-latest"
+MinimumVersion: "0.2.0"
+
+Input:
+  NAME: "AutoFirma"
+  DOWNLOAD_URL: "https://estaticos.redsara.es/comunes/autofirma/currentversion/AutoFirma_Mac_M1.zip"
+
+Process:
+  # 1) Download the .zip
+  - Processor: "URLDownloader"
+    Arguments:
+      filename: "%NAME%.zip"
+      url: "%DOWNLOAD_URL%"
+
+  - Processor: "EndOfCheckPhase"
+
+  # 2) Unpack the .zip into a folder named "AutoFirma" within the recipe cache
+  - Processor: "Unarchiver"
+    Arguments:
+      archive_path: "%pathname%"
+      destination_path: "%RECIPE_CACHE_DIR%/%NAME%"
+      purge_destination: true
+
+  # 3) Locate the actual .pkg file (versioned filename) inside the unarchived folder
+  - Processor: "FileFinder"
+    Arguments:
+      pattern: "%RECIPE_CACHE_DIR%/%NAME%/AutoFirma_*_aarch64.pkg"
+      # The default match_method is glob, which will handle '*' just fine
+      # FileFinder sets %found_filename% to the first matching file
+
+  # 4) Expand the flat .pkg into an "expand" folder
+  - Processor: "FlatPkgUnpacker"
+    Arguments:
+      flat_pkg_path: "%found_filename%"
+      destination_path: "%RECIPE_CACHE_DIR%/expand"
+      purge_destination: true
+
+  # 5) Extract the .app from the .pkg Payload
+  - Processor: "PkgPayloadUnpacker"
+    Arguments:
+      pkg_payload_path: "%RECIPE_CACHE_DIR%/expand/AutoFirma.pkg/Payload"
+      destination_path: "%RECIPE_CACHE_DIR%/expand/payload"
+      purge_destination: true
+
+  # 6) Read the final version (CFBundleShortVersionString) from the app's Info.plist
+  - Processor: "Versioner"
+    Arguments:
+      input_plist_path: "%RECIPE_CACHE_DIR%/expand/payload/AutoFirma.app/Contents/Info.plist"
+
+  # 7) Finally, copy/rename the discovered pkg file using the app version.
+  #    The AWS_VPN example copied the *downloaded* pkg. But in this case,
+  #    the "download" was a .zip, so we actually want to copy the real .pkg we found.
+  - Processor: "PkgCopier"
+    Arguments:
+      pkg_path: "%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg"
+      source_pkg: "%found_filename%"

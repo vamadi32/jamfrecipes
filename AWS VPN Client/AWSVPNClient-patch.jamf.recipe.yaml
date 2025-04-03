@@ -21,3 +21,4 @@ Process:
       patch_template: '%PATCH_TEMPLATE%'
       patch_softwaretitle: '%PATCH_SOFTWARE_TITLE%'
       patch_icon_policy_name: '%PATCH_ICON_POLICY_NAME%'
+      replace_patch: True
