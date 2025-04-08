@@ -4,8 +4,8 @@ MinimumVersion: "0.2.0"
 
 Input:
   NAME: "AutoFirma"
-  DOWNLOAD_URL: "https://estaticos.redsara.es/comunes/autofirma/currentversion/AutoFirma_Mac_M1.zip"
-
+  DOWNLOAD_ARCHITECTURE: aarch64
+  DOWNLOAD_URL: "https://firmaelectronica.gob.es/content/dam/firmaelectronica/descargas-software/AutoFirma_Mac_M1.zip"
 Process:
   # 1) Download the .zip
   - Processor: "URLDownloader"
@@ -25,7 +25,7 @@ Process:
   # 3) Locate the actual .pkg file (versioned filename) inside the unarchived folder
   - Processor: "FileFinder"
     Arguments:
-      pattern: "%RECIPE_CACHE_DIR%/%NAME%/AutoFirma_*_aarch64.pkg"
+      pattern: "%RECIPE_CACHE_DIR%/%NAME%/AutoFirma_*%DOWNLOAD_ARCHITECTURE%.pkg"
       # The default match_method is glob, which will handle '*' just fine
       # FileFinder sets %found_filename% to the first matching file
 
