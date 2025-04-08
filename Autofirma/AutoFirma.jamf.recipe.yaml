@@ -4,13 +4,15 @@ ParentRecipe: "com.github.vamadi32.download.AutoFirma-latest"
 MinimumVersion: "2.3"
 
 Input:
+  DOWNLOAD_ARCHITECTURE: aarch64
   NAME: "AutoFirma"
   CATEGORY: "Signing"
-  GROUP_NAME: "autofirma-update-smart"
+  GROUP_NAME: "%NAME%-arm64-update-smart"
   EXCLUSION_GROUP_NAME: ""
   SELF_SERVICE_CATEGORY: "%CATEGORY%"
   SELF_SERVICE_FEATURE_BOOLEAN: ""
-  GROUP_TEMPLATE: "SmartGroup-update-smart-FMAExclusion-regex.xml"
+  GROUP_CRITERIA: "arm64"
+  GROUP_TEMPLATE: "SmartGroup-update-smart-FMAExclusion-arch-regex.xml"
   POLICY_CATEGORY: "%CATEGORY%"
   POLICY_NAME: "Install Latest %NAME%"
   POLICY_TEMPLATE: "JamfPolicySSCategroyFMAExclusionTemplate.xml"
