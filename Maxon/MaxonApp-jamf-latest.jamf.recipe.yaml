@@ -1,5 +1,5 @@
 Comment: Downloads the latest version of Maxon App and imports it into the Jamf Pro server.
-Identifier: com.github.vamadi32.jamf.MaxonApp-latest
+Identifier: com.github.vamadi32.jamf.MaxonApp-jamf-latest
 ParentRecipe: com.github.foigus.pkg.MaxonApp
 MinimumVersion: '2.3'
 
