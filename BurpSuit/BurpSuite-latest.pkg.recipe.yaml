@@ -1,0 +1,37 @@
+Description: "Downloads the latest Burp Suite Professional and creates
+ package.  
+ To download Apple Silicon use: MacOsArm64 in the DOWNLOAD_ARCH variable
+ To download Intel use: 'MacOsx' in the DOWNLOAD_ARCH variable
+ To download the Professional title use: 'pro' in the DOWNLOAD_TITLE variable
+ To download the Community title use: 'community' in the DOWNLOAD_TITLE variable"
+Identifier: "com.github.vamadi32.pkg.BurpSuite-latest"
+ParentRecipe: "com.github.dataJAR-recipes.download.Burp Suite Professional"
+MinimumVersion: "2.3"
+
+Input:
+  NAME: "Burp Suite Professional"
+  DOWNLOAD_ARCH: "MacOsArm64"
+  DOWNLOAD_TITLE: "pro"
+
+Process:
+  # 1. Create an empty payload root (AppPkgCreator still expects it)
+  - Processor: "PkgRootCreator"
+    Arguments:
+      pkgroot: "%RECIPE_CACHE_DIR%/payload"
+      pkgdirs: {}
+
+  # 2. Build the installer package
+  - Processor: "AppPkgCreator"
+    Arguments:
+      # %pathname% comes from the parent recipe and points at the downloaded DMG.
+      # “Burp Suite*.app” lets AppPkgCreator match Pro or Community, Intel or Apple Silicon.
+      app_path: "%pathname%/Burp Suite*.app"
+      # Use the VERSION variable exported by the parent URLTextSearcher step.
+      pkg_path: "%RECIPE_CACHE_DIR%/%NAME%-%VERSION%.pkg"
+
+  # 3. Tidy up the throw-away payload folder
+  - Processor: "com.github.smithjw.processors/FriendlyPathDeleter"
+    Arguments:
+      path_list:
+        - "%RECIPE_CACHE_DIR%/payload"
+      fail_deleter_silently: true
