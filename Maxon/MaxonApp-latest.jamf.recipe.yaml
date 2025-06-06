@@ -6,7 +6,7 @@ MinimumVersion: '2.3'
 Input:
   NAME: Maxon
   CATEGORY: Digital Media
-  GROUP_NAME: maxon-update-smart
+  GROUP_NAME: "%NAME%-update-smart"
   GROUP_TEMPLATE: SmartGroup-update-smart-regex.xml
   POLICY_CATEGORY: '%CATEGORY%'
   POLICY_NAME: Install Latest %NAME%
