@@ -1,13 +1,16 @@
-Comment: "Downloads a hardcoded version of FileZilla, build an installer package and import it into the Jamf Pro server."
-Identifier: "com.github.vamadi32.jamf.download.FileZillaServer-hardcoded"
-ParentRecipe: "com.github.vamadi32.jamf.recipes.pkg.FileZillaServer-hardcoded"
+Comment: GROUP_CRITERIA should be either 'arm64' or 'x86_64'
+Description: "Downloads a hardcoded version of FileZilla, build an installer package and import it into the Jamf Pro server."
+Identifier: "com.github.vamadi32.jamf.FileZillaServer-hardcoded"
+ParentRecipe: "com.github.vamadi32.pkg.FileZillaServer-hardcoded"
 MinimumVersion: "2.3"
 
 Input:
   CATEGORY: "Productivity"
-  GROUP_NAME: "FileZilla-update-smart"
-  GROUP_TEMPLATE: "JamfSmartGroupTemplate.xml"
-  NAME: "FileZilla"
+  DOWNLOAD_ARCHITECTURE: "arm64"
+  GROUP_NAME: '%NAME% - %DOWNLOAD_ARCHITECTURE% - update-smart'
+  GROUP_TEMPLATE: 'SmartGroupTest-architecture-smart.xml'
+  GROUP_CRITERIA: 'arm64'
+  NAME: "FileZillaServer"
   POLICY_CATEGORY: "%CATEGORY%"
   POLICY_NAME: "Install Latest %NAME%"
   POLICY_TEMPLATE: "JamfPolicyTemplate.xml"
@@ -15,7 +18,9 @@ Input:
   SELF_SERVICE_DISPLAY_NAME: "Install Latest %NAME%"
   SELF_SERVICE_ICON: "%NAME%.png"
   TESTING_GROUP_NAME: "Testing"
-  UPDATE_PREDICATE: "pkg_uploaded == False"
+  UPDATE_PREDICATE: "pkg_uploaded == True"
+  URL: "https://dl2.cdn.filezilla-project.org/server/FileZilla_Server_%VERSION%_macos-arm64.pkg?h=CHbcwYo1tJitxSpAmpLK5Q&x=1754388644"
+  STOP_PREDICATE: "NOT virus_total_analyzer_summary_result.data.ratio BEGINSWITH '0'"
 
 
 
@@ -26,13 +31,13 @@ Process:
     Arguments:
      predicate: "%STOP_PREDICATE%"
 
+  - Processor: StopProcessingIf
+    Arguments:
+     predicate: "%UPDATE_PREDICATE%"
+
   - Processor: "com.github.grahampugh.jamf-upload.processors/JamfPackageUploader"
     Arguments:
       pkg_category: "%CATEGORY%"
-
-  - Processor: "StopProcessingIf"
-    Arguments:
-      predicate: "%UPDATE_PREDICATE%"
 
   - Processor: "com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader"
     Arguments:

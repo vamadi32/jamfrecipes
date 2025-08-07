@@ -3,7 +3,8 @@ Identifier: "com.github.vamadi32.download.FileZillaServer-hardcoded"
 Input:
   NAME: FileZillaServer
   VERSION: 1.10.5
-  URL: "https://dl2.cdn.filezilla-project.org/server/FileZilla_Server_%VERSION%_macos-arm64.pkg?h=CHbcwYo1tJitxSpAmpLK5Q&x=1754388644"
+  DOWNLOAD_ARCHITECTURE: macos-arm64
+  URL: "https://dl2.cdn.filezilla-project.org/server/FileZilla_Server_%VERSION%_%DOWNLOAD_ARCHITECTURE%.pkg?h=CHbcwYo1tJitxSpAmpLK5Q&x=1754388644"
   FILENAME: "%NAME%-%VERSION%.pkg"
 
 Process:

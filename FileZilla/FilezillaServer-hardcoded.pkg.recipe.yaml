@@ -7,6 +7,7 @@ Input:
   NAME: "FileZillaServer"
   version: "1.10.5"
 
+
 Process:
   - Processor: PkgCopier
     Arguments:
