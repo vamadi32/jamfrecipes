@@ -4,18 +4,12 @@ MinimumVersion: '2.3'
 
 Input:
   NAME: tsh
-  MATCH_VERSION: '\d+\.\d+\.\d+'
+  MATCH_VERSION: '16.1.4'  # Using lowercase to match what child recipes expect
 
 Process:
-- Processor: URLTextSearcher
-  Arguments:
-    url: 'https://goteleport.com/docs/changelog/'
-    re_pattern: '(?P<version>%MATCH_VERSION%) \([^)]*\)'
-    result_output_var_name: version
-
 - Processor: com.github.mlbz521.SharedProcessors/VersionMajorMinor
   Arguments:
-    version: "%version%"
+    version: "%MATCH_VERSION%"
 
 - Processor: URLDownloader
   Arguments:
