@@ -1,26 +1,17 @@
 Description: Recipe description
+Comment: tsh is now being bundled in Teleport. New versions missing in Changelog 
 Identifier: com.github.vamadi32.download.tsh-fixed-version
 MinimumVersion: '2.3'
 
 Input:
   NAME: tsh
-  MATCH_VERSION: '\d+\.\d+\.\d+'
+  MATCH_VERSION: '16.1.4'
 
 Process:
-- Processor: URLTextSearcher
-  Arguments:
-    url: 'https://goteleport.com/docs/changelog/'
-    re_pattern: '(?P<version>%MATCH_VERSION%) \([^)]*\)'
-    result_output_var_name: version
-
-- Processor: com.github.mlbz521.SharedProcessors/VersionMajorMinor
-  Arguments:
-    version: "%version%"
-
 - Processor: URLDownloader
   Arguments:
-    url: 'https://cdn.teleport.dev/tsh-%version%.pkg'
-    filename: '%NAME%-%version%.pkg'
+    url: 'https://cdn.teleport.dev/tsh-%MATCH_VERSION%.pkg'
+    filename: '%NAME%-%MATCH_VERSION%.pkg'
 
 - Processor: EndOfCheckPhase
 

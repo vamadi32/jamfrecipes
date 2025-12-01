@@ -6,7 +6,7 @@ MinimumVersion: '2.3'
 Input:
   NAME: tsh
   SOFTWARE_TITLE: tsh
-  MATCH_VERSION: '15.4.10'
+  MATCH_VERSION: '16.1.4'
   CATEGORY: Productivity
   GROUP_NAME: '%NAME%-update-smart'
   GROUP_TEMPLATE: JamfSmartGroupWithExclusionTemplate.xml
